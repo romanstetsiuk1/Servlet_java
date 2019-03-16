@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @WebServlet("/collection")
 public class myCollectionsServlet extends HttpServlet {
@@ -53,35 +52,9 @@ public class myCollectionsServlet extends HttpServlet {
             out.println("</tr>");
         });
 
-//        if (requestParametr.equals("r")) {
-//            SortedSet<String> sortUp = new TreeSet<>(firstLastName.keySet());
-//            for (String keyVal : sortUp) {
-//                writeHtmlTable(resp, firstLastName, keyVal);
-//            }
-//        }
-
-//        if (requestParametr.equals("m")) {
-//            Map<String, String> sortDown = new LinkedHashMap<>();
-//            firstLastName.entrySet().stream()
-//                    .sorted(Map.Entry.<String, String>comparingByKey().reversed())
-//                    .forEachOrdered(x -> sortDown.put(x.getKey(), x.getValue()));
-//            for (String key : sortDown.keySet()) {
-//                writeHtmlTable(resp, sortDown, key);
-//            }
-//        }
-
         resp.getWriter().print("</table>");
 
     }
-
-//    private void writeHtmlTable(HttpServletResponse resp, Map<String, String> firstLastName, String keyVal) throws IOException {
-//        String temp;
-//        resp.getWriter().print("<tr>");
-//        resp.getWriter().println("<td>" + keyVal + "</td>");
-//        temp = firstLastName.get(keyVal);
-//        resp.getWriter().println("<td>" + temp + "</td>");
-//        resp.getWriter().print("</tr>");
-//    }
 
     private void init(Map<String, String> firstLastName) {
         firstLastName.put("first name q", "last name 1");
